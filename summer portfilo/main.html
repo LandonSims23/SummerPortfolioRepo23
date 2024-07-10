@@ -21,7 +21,7 @@
          </ul>
       </nav>
       <div class="header-text">
-        <p>Video Game Developer</p>
+        <p>Video Content Creator</p>
         <h1>Hello, I,m <span> Landon Sims</span><br>from oakland, CA!</h1>
       </div>
       </div>
@@ -43,13 +43,13 @@
                 tech creation,leadership skills and entreprenueurship skills to help approach my goals
                </p>
 
-               <div class="tab-titles">
-                   <p class="tab-links active-link">Skills</p>
-                   <p class="tab-links">Experience</p>
-                   <p class="tab-links">Education</p>
+               <div class="tab-titles" id="skills">
+                   <p class="tab-links active-link" onclick="openTab('skills')">Skills</p>
+                   <p class="tab-links" onclick="openTab('exp')">Experience</p>
+                   <p class="tab-links" onclick="openTab('edu')">Education</p>
                </div>
 
-               <div class="tab-contents">
+               <div class="tab-contents active-tab" id="skills">
                 <ul>
                   <li><span>Video Content Creator</span><br>(Youtuber)</li>
                   <li><span>Good Interpersonal Skills</span><br>(Good Communitcation)</li>
@@ -57,7 +57,7 @@
                 </ul>
                </div>
 
-               <div class="tab-contents">
+               <div class="tab-contents" id="exp">
                 <ul>
                   <li><span>Video Content Creator</span><br>(Youtuber)</li>
                   <li><span>10th grade</span><br>(Sophmore)</li>
@@ -65,7 +65,7 @@
                 </ul>
                </div>
 
-               <div class="tab-contents">
+               <div class="tab-contents" id="edu">
                 <ul>
                   <li><span>Video Content Creator</span><br>(Youtuber)</li>
                   <li><span>Good Interpersonal Skills</span><br>(Good Communitcation)</li>
@@ -73,8 +73,36 @@
                 </ul>
                </div>
              </div>
+
           </div>
         </div>
     </div>
+
+    <script>
+      /* Variable - A name and a type of a stored value */
+
+       /* A variable called tabLinks that holds the tags with class 'tab-links' */
+      var tabLinks = document.getElementsByClassName("tab-links");
+
+       /* A variable called tabContents that holds the tags with class 'tab-contents' */ 
+      var tabContents = document.getElementsByClassName("tab-contents");
+
+      function openTab(tabName)
+      {
+        for (tabLink of tabLinks)
+        {
+          tabLink.classList.remove("active-link");
+        }
+
+        for (tabContent of tabContents)
+        {
+          tabContent.classList.remove("active-tab");
+        }
+
+         event.currentTarget.classList.add("active-link");
+         document.getElementById(tabName).classList.add("active-tab");
+      }
+     </script>
+
 </body>
 </html>

@@ -14,7 +14,7 @@
             <nav>
                 <img src="images/thgp_logo_720.png" alt="THGP Logo" class="logo">
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#header">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
@@ -160,16 +160,16 @@
                         
                         <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     </div>
-                    <a href="#" class="btn">Download</a>
+                    <a href="#" class="btn btn2">Download CV</a>
 
                 </div>
 
                 <div class="contact-right">
-                    <form>
+                    <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="your Name" required>
-                        <input type= "email" name="email" placeholder="your Email" required>
+                        <input type= "email" name="Email" placeholder="your Email" required>
                         <textarea name="Message" rows="3" placeholder="Your Message"></textarea>
-                        <button type="submit">submit</button>
+                        <button type="submit" class="btn btn2">submit</button>
                     </form>
 
                 </div>
@@ -196,5 +196,16 @@
             document.getElementById(tabName).classList.add("active-tab");
         }
     </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyQVuFZmXUa2qT1GMj6iNOk8yKxZeq9vip1UAkdvLGvEYpOwNDW37dqqkc7DTm34Th4_A/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </body>
 </html>
